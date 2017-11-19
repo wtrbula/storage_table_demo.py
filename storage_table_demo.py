@@ -67,32 +67,32 @@ raw_input('Press Enter to continue...')
 # A row key is a unique ID for each entity in the partition
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
-cars = Entity()
-cars.Make = 'Ford'
-cars.Model = 'Mustang'
-cars.Year = '2017'
-cars.Color = 'Red'
-cars.Price = 30,000
-table_service.insert_entity('itemstable', cars)
+car = Entity()
+car.Make = 'Ford'
+car.Model = 'Mustang'
+car.Year = '2017'
+car.Color = 'Red'
+car.Price = 30,000
+table_service.insert_entity('itemstable', car)
 print('Created entry for Mustang...')
 
-cars = Entity()
-cars.Make = 'Ford'
-cars.Model = 'F250 Lariat'
-cars.Year = '2016'
-cars.Color = 'White'
-cars.Price = 65,000
-table_service.insert_entity('itemstable', cars)
-print('Created entry for F250 Lariat...')
+car = Entity()
+car.Make = 'Ford'
+car.Model = 'F250_Lariat'
+car.Year = '2016'
+car.Color = 'White'
+car.Price = 65,000
+table_service.insert_entity('itemstable', car)
+print('Created entry for F250_Lariat...')
 
-cars = Entity()
-cars.Make = 'Ford'
-cars.Model = 'F150 XLT'
-cars.Year = '2018'
-cars.Color = 'Black'
-cars.Price = 40,000
-table_service.insert_entity('itemstable', cars)
-print('Created entry for F150 XLT...\n')
+car = Entity()
+car.Make = 'Ford'
+car.Model = 'F150_XLT'
+car.Year = '2018'
+car.Color = 'Black'
+car.Price = 40,000
+table_service.insert_entity('itemstable', car)
+print('Created entry for F150_XLT...\n')
 
 # A partition key tracks how like-minded entries in the Table are created and queried.
 # A row key is a unique ID for each entity in the partition
@@ -104,7 +104,7 @@ coffee.Flavor = 'Peppermint Mocha'
 coffee.CupSize = 'Grande'
 coffee.Price = 3.99
 table_service.insert_entity('itemstable', coffee)
-print('Created entry for a Peppermint Moch...\n')
+print('Created entry for a Peppermint_Moch...\n')
 time.sleep(1)
 
 coffee = Entity()
@@ -113,7 +113,7 @@ coffee.Flavor = 'Caffe Latte'
 coffee.CupSize = 'Tall'
 coffee.Price = 5.99
 table_service.insert_entity('itemstable', coffee)
-print('Created entry for Caffe Latte...\n')
+print('Created entry for Caffe_Latte...\n')
 time.sleep(1)
 
 ###
