@@ -69,7 +69,7 @@ raw_input('Press Enter to continue...')
 
 car = Entity()
 car.PartionKey - 'caroptions'
-car.RowKey = "001'
+car.RowKey = '001'
 car.Make = 'Ford'
 car.Model = 'Mustang'
 car.Year = '2017'
@@ -80,7 +80,7 @@ print('Created entry for Mustang...')
 
 car = Entity()
 car.PartionKey - 'caroptions'
-car.RowKey = "002'
+car.RowKey = '002'
 car.Make = 'Ford'
 car.Model = 'F250_Lariat'
 car.Year = '2016'
@@ -91,7 +91,7 @@ print('Created entry for F250_Lariat...')
 
 car = Entity()
 car.PartionKey - 'caroptions'
-car.RowKey = "003'
+car.RowKey = '003'
 car.Make = 'Ford'
 car.Model = 'F150_XLT'
 car.Year = '2018'
@@ -106,7 +106,7 @@ print('Created entry for F150_XLT...\n')
 
 coffee = Entity()
 coffee.PartionKey - 'coffeemenu'
-coffee.RowKey = "004'
+coffee.RowKey = '004'
 coffee.Brand = 'Starbucks'
 coffee.Flavor = 'Peppermint Mocha'
 coffee.CupSize = 'Grande'
@@ -117,7 +117,7 @@ time.sleep(1)
 
 coffee = Entity()
 coffee.PartionKey - 'coffeemenu'
-coffee.RowKey = "005'
+coffee.RowKey = '005'
 coffee.Brand = 'Starbucks'
 coffee.Flavor = 'Caffe Latte'
 coffee.CupSize = 'Tall'
