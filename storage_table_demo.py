@@ -68,7 +68,7 @@ raw_input('Press Enter to continue...')
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
 car = Entity()
-car.PartionKey - 'caroptions'
+car.PartitionKey - 'caroption'
 car.RowKey = '001'
 car.Make = 'Ford'
 car.Model = 'Mustang'
@@ -79,7 +79,7 @@ table_service.insert_entity('itemstable', car)
 print('Created entry for Mustang...')
 
 car = Entity()
-car.PartionKey - 'caroptions'
+car.PartitionKey - 'caroption'
 car.RowKey = '002'
 car.Make = 'Ford'
 car.Model = 'F250_Lariat'
@@ -90,7 +90,7 @@ table_service.insert_entity('itemstable', car)
 print('Created entry for F250_Lariat...')
 
 car = Entity()
-car.PartionKey - 'caroptions'
+car.PartitionKey - 'caroption'
 car.RowKey = '003'
 car.Make = 'Ford'
 car.Model = 'F150_XLT'
@@ -105,7 +105,7 @@ print('Created entry for F150_XLT...\n')
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
 coffee = Entity()
-coffee.PartionKey - 'coffeemenu'
+coffee.PartitionKey - 'coffeemenu'
 coffee.RowKey = '004'
 coffee.Brand = 'Starbucks'
 coffee.Flavor = 'Peppermint Mocha'
@@ -116,7 +116,7 @@ print('Created entry for a Peppermint_Moch...\n')
 time.sleep(1)
 
 coffee = Entity()
-coffee.PartionKey - 'coffeemenu'
+coffee.PartitionKey - 'coffeemenu'
 coffee.RowKey = '005'
 coffee.Brand = 'Starbucks'
 coffee.Flavor = 'Caffe Latte'
@@ -134,12 +134,12 @@ raw_input('Press Enter to continue...')
 
 # In this query, you define the partition key to search within, and then which properties to retrieve
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
-items = table_service.query_entities('itemstable', filter="Make eq 'Ford'", select='Model,Price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='Model,Price')
 for item in items:
     print('Name: ' + item.model)
     print('Price: ' + str(item.price) + '\n')
 
-items = table_service.query_entities('itemstable', filter="Brand eq 'Starbucks'", select='Flavor,Price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='Flavor,Price')
 for item in items:
     print('Name: ' + item.flavor)
     print('Price: ' + str(item.price) + '\n')
