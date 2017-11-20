@@ -68,6 +68,8 @@ raw_input('Press Enter to continue...')
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
 car = Entity()
+car.PartionKey - 'caroptions'
+car.RowKey = "001'
 car.Make = 'Ford'
 car.Model = 'Mustang'
 car.Year = '2017'
@@ -77,6 +79,8 @@ table_service.insert_entity('itemstable', car)
 print('Created entry for Mustang...')
 
 car = Entity()
+car.PartionKey - 'caroptions'
+car.RowKey = "002'
 car.Make = 'Ford'
 car.Model = 'F250_Lariat'
 car.Year = '2016'
@@ -86,6 +90,8 @@ table_service.insert_entity('itemstable', car)
 print('Created entry for F250_Lariat...')
 
 car = Entity()
+car.PartionKey - 'caroptions'
+car.RowKey = "003'
 car.Make = 'Ford'
 car.Model = 'F150_XLT'
 car.Year = '2018'
@@ -99,6 +105,8 @@ print('Created entry for F150_XLT...\n')
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
 coffee = Entity()
+coffee.PartionKey - 'coffeemenu'
+coffee.RowKey = "004'
 coffee.Brand = 'Starbucks'
 coffee.Flavor = 'Peppermint Mocha'
 coffee.CupSize = 'Grande'
@@ -108,6 +116,8 @@ print('Created entry for a Peppermint_Moch...\n')
 time.sleep(1)
 
 coffee = Entity()
+coffee.PartionKey - 'coffeemenu'
+coffee.RowKey = "005'
 coffee.Brand = 'Starbucks'
 coffee.Flavor = 'Caffe Latte'
 coffee.CupSize = 'Tall'
