@@ -6,9 +6,9 @@ auth_token = azurerm.get_access_token_from_cli()
 subscription_id = azurerm.get_subscription_from_cli()
 
 # Define variables with random resource group and storage account names
-resourcegroup_name = 'rgWTT'+''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6))
-storageaccount_name = 'wttstorageacct'+''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6))
-location = 'southcentralus'
+resourcegroup_name = 'zdj'+''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6))
+storageaccount_name = 'zdj'+''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6))
+location = 'eastus'
 
 ###
 # Create the a resource group for our demo
@@ -61,87 +61,76 @@ print('Now let\'s add some entries to our Table.\nRemember, Azure Storage Tables
 raw_input('Press Enter to continue...')
 
 # Each entry in a Table is called an 'Entity'. 
-# Here, we add an entry for first cars with two pieces of data - the name, and the cost
+# Here, we add an entry for first pizza with two pieces of data - the name, and the cost
 #
 # A partition key tracks how like-minded entries in the Table are created and queried.
 # A row key is a unique ID for each entity in the partition
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
-car = Entity()
-car.PartitionKey = 'caroption'
-car.RowKey = '001'
-car.Make = 'Ford'
-car.Model = 'Mustang'
-car.Year = '2017'
-car.Color = 'Red'
-car.Price = 30,000
-table_service.insert_entity('itemstable', car)
-print('Created entry for Mustang...')
+pizza = Entity()
+pizza.PartitionKey = 'pizzamenu'
+pizza.RowKey = '001'
+pizza.description = 'Pepperoni'
+pizza.cost = 18
+table_service.insert_entity('itemstable', pizza)
+print('Created entry for pepperoni...')
 
-car = Entity()
-car.PartitionKey = 'caroption'
-car.RowKey = '002'
-car.Make = 'Ford'
-car.Model = 'F250_Lariat'
-car.Year = '2016'
-car.Color = 'White'
-car.Price = 65,000
-table_service.insert_entity('itemstable', car)
-print('Created entry for F250_Lariat...')
+pizza = Entity()
+pizza.PartitionKey = 'pizzamenu'
+pizza.RowKey = '002'
+pizza.description = 'Veggie'
+pizza.cost = 15
+table_service.insert_entity('itemstable', pizza)
+print('Created entry for veggie...')
 
-car = Entity()
-car.PartitionKey = 'caroption'
-car.RowKey = '003'
-car.Make = 'Ford'
-car.Model = 'F150_XLT'
-car.Year = '2018'
-car.Color = 'Black'
-car.Price = 40,000
-table_service.insert_entity('itemstable', car)
-print('Created entry for F150_XLT...\n')
+pizza = Entity()
+pizza.PartitionKey = 'pizzamenu'
+pizza.RowKey = '003'
+pizza.description = 'Hawaiian'
+pizza.cost = 12
+table_service.insert_entity('itemstable', pizza)
+print('Created entry for Hawaiian...\n')
 
 # A partition key tracks how like-minded entries in the Table are created and queried.
 # A row key is a unique ID for each entity in the partition
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
-coffee = Entity()
-coffee.PartitionKey = 'coffeemenu'
-coffee.RowKey = '004'
-coffee.Brand = 'Starbucks'
-coffee.Flavor = 'Peppermint Mocha'
-coffee.CupSize = 'Grande'
-coffee.Price = 3.99
-table_service.insert_entity('itemstable', coffee)
-print('Created entry for a Peppermint_Moch...\n')
+clothing = Entity()
+clothing.PartitionKey = 'clothingstore'
+clothing.RowKey = '005'
+clothing.sku = 'BLK203123'
+clothing.item = 'sweater'
+clothing.cost = 22.99
+table_service.insert_entity('itemstable', clothing)
+print('Created entry for a Sweater...\n')
 time.sleep(1)
 
-coffee = Entity()
-coffee.PartitionKey = 'coffeemenu'
-coffee.RowKey = '005'
-coffee.Brand = 'Starbucks'
-coffee.Flavor = 'Caffe Latte'
-coffee.CupSize = 'Tall'
-coffee.Price = 5.99
-table_service.insert_entity('itemstable', coffee)
-print('Created entry for Caffe_Latte...\n')
+clothing = Entity()
+clothing.PartitionKey = 'clothingstore'
+clothing.RowKey = '006'
+clothing.sku = 'BLK203143'
+clothing.item = 'jeans'
+clothing.cost = 55.99
+table_service.insert_entity('itemstable', clothing)
+print('Created entry for Jeans...\n')
 time.sleep(1)
 
 ###
 # Use the Azure Storage Storage SDK for Python to query for entities in our Table
 ###
-print('With some data in our Azure Storage Table, we can query the data.\nLet\'s see what the Ford looks like.')
+print('With some data in our Azure Storage Table, we can query the data.\nLet\'s see what the pizza menu looks like.')
 raw_input('Press Enter to continue...')
 
 # In this query, you define the partition key to search within, and then which properties to retrieve
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='Model,Price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'pizzamenu'", select='description,cost')
 for item in items:
-    print('Name: ' + item.model)
-    print('Price: ' + str(item.price) + '\n')
+    print('Name: ' + item.description)
+    print('Cost: ' + str(item.cost) + '\n')
 
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='Flavor,Price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'clothingstore'", select='description,price')
 for item in items:
-    print('Name: ' + item.flavor)
+    print('Name: ' + item.description)
     print('Price: ' + str(item.price) + '\n')
 
 time.sleep(1)
