@@ -67,27 +67,27 @@ raw_input('Press Enter to continue...')
 # A row key is a unique ID for each entity in the partition
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
-pizza = Entity()
-pizza.PartitionKey = 'caroption'
-pizza.RowKey = '001'
-pizza.description = 'Pepperoni'
-pizza.cost = 18
+car = Entity()
+car.PartitionKey = 'caroption'
+car.RowKey = '001'
+car.description = 'Pepperoni'
+car.cost = 18
 table_service.insert_entity('itemstable', car)
 print('Created entry for pepperoni...')
 
-pizza = Entity()
-pizza.PartitionKey = 'caroption'
-pizza.RowKey = '002'
-pizza.description = 'Veggie'
-pizza.cost = 15
+car = Entity()
+car.PartitionKey = 'caroption'
+car.RowKey = '002'
+car.description = 'Veggie'
+car.cost = 15
 table_service.insert_entity('itemstable', car)
 print('Created entry for veggie...')
 
-pizza = Entity()
-pizza.PartitionKey = 'caroption'
-pizza.RowKey = '003'
-pizza.description = 'Hawaiian'
-pizza.cost = 12
+car = Entity()
+car.PartitionKey = 'caroption'
+car.RowKey = '003'
+car.description = 'Hawaiian'
+car.cost = 12
 table_service.insert_entity('itemstable', car)
 print('Created entry for Hawaiian...\n')
 
