@@ -70,7 +70,7 @@ raw_input('Press Enter to continue...')
 car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '001'
-car.description = 'Mustang'
+car.model = 'Mustang'
 car.cost = 30000
 table_service.insert_entity('itemstable', car)
 print('Created entry for Mustang...')
@@ -78,7 +78,7 @@ print('Created entry for Mustang...')
 car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '002'
-car.description = 'F250 Lariat'
+car.model = 'F250 Lariat'
 car.cost = 65000
 table_service.insert_entity('itemstable', car)
 print('Created entry for F250 Lariat...')
@@ -86,7 +86,7 @@ print('Created entry for F250 Lariat...')
 car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '003'
-car.description = 'F150 XLT'
+car.model = 'F150 XLT'
 car.cost = 40000
 table_service.insert_entity('itemstable', car)
 print('Created entry for F150 XLT...\n')
@@ -123,9 +123,9 @@ raw_input('Press Enter to continue...')
 
 # In this query, you define the partition key to search within, and then which properties to retrieve
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='description,cost')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='model,cost')
 for item in items:
-    print('Name: ' + item.description)
+    print('Name: ' + item.model)
     print('Cost: ' + str(item.cost) + '\n')
 
 items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='item,cost')
