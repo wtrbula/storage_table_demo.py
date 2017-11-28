@@ -71,6 +71,7 @@ car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '001'
 car.model = 'Mustang'
+car.color = 'Red'
 car.cost = 30000
 table_service.insert_entity('itemstable', car)
 print('Created entry for Mustang...')
@@ -79,6 +80,7 @@ car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '002'
 car.model = 'F250 Lariat'
+car.color = 'White'
 car.cost = 65000
 table_service.insert_entity('itemstable', car)
 print('Created entry for F250 Lariat...')
@@ -87,6 +89,7 @@ car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '003'
 car.model = 'F150 XLT'
+car.color = 'Black'
 car.cost = 40000
 table_service.insert_entity('itemstable', car)
 print('Created entry for F150 XLT...\n')
