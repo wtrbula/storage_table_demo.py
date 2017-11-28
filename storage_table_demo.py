@@ -82,7 +82,7 @@ car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '002'
 car.Make = 'Ford'
-car.Model = 'F250_Lariat'
+car.Model = 'F250 Lariat'
 car.Year = '2016'
 car.Color = 'White'
 car.Price = 65000
@@ -93,7 +93,7 @@ car = Entity()
 car.PartitionKey = 'caroption'
 car.RowKey = '003'
 car.Make = 'Ford'
-car.Model = 'F150_XLT'
+car.Model = 'F150 XLT'
 car.Year = '2018'
 car.Color = 'Black'
 car.Price = 40000
@@ -108,22 +108,22 @@ coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
 coffee.RowKey = '004'
 coffee.Brand = 'Starbucks'
-coffee.Flavor = 'Peppermint_Mocha'
+coffee.Flavor = 'Peppermint Mocha'
 coffee.CupSize = 'Grande'
 coffee.Price = 3.99
 table_service.insert_entity('itemstable', coffee)
-print('Created entry for a Peppermint_Moch...\n')
+print('Created entry for a Peppermint Mocha...\n')
 time.sleep(1)
 
 coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
 coffee.RowKey = '005'
 coffee.Brand = 'Starbucks'
-coffee.Flavor = 'Caffe_Latte'
+coffee.Flavor = 'Caffe Latte'
 coffee.CupSize = 'Tall'
 coffee.Price = 5.99
 table_service.insert_entity('itemstable', coffee)
-print('Created entry for Caffe_Latte...\n')
+print('Created entry for Caffe Latte...\n')
 time.sleep(1)
 
 ###
@@ -134,12 +134,12 @@ raw_input('Press Enter to continue...')
 
 # In this query, you define the partition key to search within, and then which properties to retrieve
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='Model,Price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='model,price')
 for item in items:
     print('Name: ' + item.model)
     print('Price: ' + str(item.price) + '\n')
 
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='Flavor,Price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='flavor,price')
 for item in items:
     print('Name: ' + item.flavor)
     print('Price: ' + str(item.price) + '\n')
