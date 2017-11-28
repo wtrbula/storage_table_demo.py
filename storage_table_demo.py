@@ -81,7 +81,7 @@ car.RowKey = '002'
 car.description = 'Veggie'
 car.cost = 65,000
 table_service.insert_entity('itemstable', car)
-print('Created entry for F250_Lariat...')
+print('Created entry for F250 Lariat...')
 
 car = Entity()
 car.PartitionKey = 'caroption'
@@ -89,7 +89,7 @@ car.RowKey = '003'
 car.description = 'Hawaiian'
 car.cost = 40,000
 table_service.insert_entity('itemstable', car)
-print('Created entry for F150_XLT...\n')
+print('Created entry for F150 XLT...\n')
 
 # A partition key tracks how like-minded entries in the Table are created and queried.
 # A row key is a unique ID for each entity in the partition
@@ -102,7 +102,7 @@ coffee.sku = 'BLK203123'
 coffee.item = 'sweater'
 coffee.cost = 3.99
 table_service.insert_entity('itemstable', coffee)
-print('Created entry for a Peppermint_Mocha...\n')
+print('Created entry for a Peppermint Mocha...\n')
 time.sleep(1)
 
 coffee = Entity()
@@ -112,7 +112,7 @@ coffee.sku = 'BLK203143'
 coffee.item = 'jeans'
 coffee.cost = 5.99
 table_service.insert_entity('itemstable', coffee)
-print('Created entry for Caffe_Latte...\n')
+print('Created entry for Caffe Latte...\n')
 time.sleep(1)
 
 ###
