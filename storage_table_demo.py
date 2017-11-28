@@ -95,23 +95,23 @@ print('Created entry for Hawaiian...\n')
 # A row key is a unique ID for each entity in the partition
 # These two properties are used as a primary key to index the Table. This makes queries much quicker.
 
-clothing = Entity()
-clothing.PartitionKey = 'clothingstore'
-clothing.RowKey = '005'
-clothing.sku = 'BLK203123'
-clothing.item = 'sweater'
-clothing.cost = 22.99
-table_service.insert_entity('itemstable', clothing)
+coffee = Entity()
+coffee.PartitionKey = 'coffeemenu'
+coffee.RowKey = '005'
+coffee.sku = 'BLK203123'
+coffee.item = 'sweater'
+coffee.cost = 22.99
+table_service.insert_entity('itemstable', coffee)
 print('Created entry for a Sweater...\n')
 time.sleep(1)
 
-clothing = Entity()
-clothing.PartitionKey = 'clothingstore'
-clothing.RowKey = '006'
-clothing.sku = 'BLK203143'
-clothing.item = 'jeans'
-clothing.cost = 55.99
-table_service.insert_entity('itemstable', clothing)
+coffee = Entity()
+coffee.PartitionKey = 'coffeemenu'
+coffee.RowKey = '006'
+coffee.sku = 'BLK203143'
+coffee.item = 'jeans'
+coffee.cost = 55.99
+table_service.insert_entity('itemstable', coffee)
 print('Created entry for Jeans...\n')
 time.sleep(1)
 
@@ -128,7 +128,7 @@ for item in items:
     print('Name: ' + item.description)
     print('Cost: ' + str(item.cost) + '\n')
 
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'clothingstore'", select='item,cost')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='item,cost')
 for item in items:
     print('Name: ' + item.item)
     print('Cost: ' + str(item.cost) + '\n')
