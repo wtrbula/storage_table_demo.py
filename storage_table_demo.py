@@ -97,7 +97,7 @@ print('Created entry for F150_XLT...\n')
 
 coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
-coffee.RowKey = '004'
+coffee.RowKey = '005'
 coffee.sku = 'BLK203123'
 coffee.item = 'sweater'
 coffee.cost = 3.99
@@ -107,7 +107,7 @@ time.sleep(1)
 
 coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
-coffee.RowKey = '005'
+coffee.RowKey = '006'
 coffee.sku = 'BLK203143'
 coffee.item = 'jeans'
 coffee.cost = 5.99
