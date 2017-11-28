@@ -99,7 +99,7 @@ coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
 coffee.RowKey = '005'
 coffee.sku = 'BLK203123'
-coffee.item = 'Peppermint Mocha'
+coffee.flavor = 'Peppermint Mocha'
 coffee.cost = 3.99
 table_service.insert_entity('itemstable', coffee)
 print('Created entry for a Peppermint Mocha...\n')
@@ -109,7 +109,7 @@ coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
 coffee.RowKey = '006'
 coffee.sku = 'BLK203143'
-coffee.item = 'Caffe Latte'
+coffee.flavor = 'Caffe Latte'
 coffee.cost = 5.99
 table_service.insert_entity('itemstable', coffee)
 print('Created entry for Caffe Latte...\n')
@@ -128,9 +128,9 @@ for item in items:
     print('Name: ' + item.model)
     print('Cost: ' + str(item.cost) + '\n')
 
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='item,cost')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='flavor,cost')
 for item in items:
-    print('Name: ' + item.item)
+    print('Name: ' + item.flavor)
     print('Cost: ' + str(item.cost) + '\n')
 
 time.sleep(1)
