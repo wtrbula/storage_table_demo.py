@@ -134,12 +134,15 @@ raw_input('Press Enter to continue...')
 
 # In this query, you define the partition key to search within, and then which properties to retrieve
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='make,price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'caroption'", select='make,model,year,color,price')
 for item in items:
-    print('Name: ' + item.make)
+    print('Make: ' + item.make)
+    print('Model: ' + item.model)
+    print('Year: ' + item.year)
+    print('Color: ' + item.color)
     print('Price: ' + str(item.price) + '\n')
 
-items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='flavor,price')
+items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeemenu'", select='brand,flavor,cupsize,price')
 for item in items:
     print('Name: ' + item.flavor)
     print('Price: ' + str(item.price) + '\n')
