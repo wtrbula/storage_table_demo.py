@@ -98,7 +98,7 @@ print('Created entry for F150 XLT...\n')
 coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
 coffee.RowKey = '005'
-coffee.sku = 'BLK203123'
+coffee.cupsize = 'Grande'
 coffee.flavor = 'Peppermint Mocha'
 coffee.cost = 3.99
 table_service.insert_entity('itemstable', coffee)
@@ -108,7 +108,7 @@ time.sleep(1)
 coffee = Entity()
 coffee.PartitionKey = 'coffeemenu'
 coffee.RowKey = '006'
-coffee.sku = 'BLK203143'
+coffee.cupsize = 'Tall'
 coffee.flavor = 'Caffe Latte'
 coffee.cost = 5.99
 table_service.insert_entity('itemstable', coffee)
